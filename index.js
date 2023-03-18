@@ -10,7 +10,7 @@ list.append('8'); // {4, 8}
 console.log(`With two elements appended, the length of the list: ${list.length()}`);
 
 list.insert('5', 1); // {4, 5, 8}
-console.log(`Inserted element in index 1: ${list.head.next.val}, list length: ${list.length()}\n`);
+console.log(`Inserted element in index 1: ${list.get(1)}, list length: ${list.length()}\n`);
 
 console.log(`Deleted element: ${list.delete(1)}`); // {4, 8}
 console.log(`Now the list length is ${list.length()}\n`);
@@ -38,3 +38,9 @@ const copiedList = list.clone();
 console.log(`Getting an element from a copied list with index 0: ${copiedList.get(0)}`); // 4
 console.log(`Getting an element from a copied list with index 2: ${copiedList.get(2)}`); // 9
 console.log(`Getting an element from a copied list with index 4: ${copiedList.get(4)}\n`); // 6
+
+list.reverse(); // 
+console.log('The list has been reversed.');
+console.log(`Getting an element with index 0: ${list.get(0)}`); // 6
+console.log(`Getting an element with index 2: ${list.get(2)}`); // 9
+console.log(`Getting an element with index 4: ${list.get(4)}\n`); // 4
