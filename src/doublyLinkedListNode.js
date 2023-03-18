@@ -5,10 +5,6 @@ class DoublyLinkedListNode {
         this.prev = prev;
         this.next = next;
     }
-
-    toString() {
-        return `${this.val}`;
-    }
 }
 
 export { DoublyLinkedListNode };
