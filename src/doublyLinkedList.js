@@ -210,7 +210,11 @@ class DoublyLinkedList {
 
     // extend method adds to the list all the elements of elements list
     extend(elements) {
-
+        var nodeToAppend = elements.head;
+        while (nodeToAppend !== null) {
+            this.append(nodeToAppend.val);
+            nodeToAppend = nodeToAppend.next;
+        }
     }
 }
 

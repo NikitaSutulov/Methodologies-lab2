@@ -52,3 +52,12 @@ console.log(`Its last index in the list: ${list.findLast('3')}\n`);
 
 list.clear();
 console.log(`The list has been cleared, its length is: ${list.length()}\n`);
+
+list.extend(copiedList); // {4, 8, 9, 3, 6}
+console.log(`Getting an element with index 0 from extended list: ${list.get(0)}`); // 4
+console.log(`Getting an element with index 2 from extended list: ${list.get(2)}`); // 9
+console.log(`Getting an element with index 4 from extended list: ${list.get(4)}\n`); // 6
+
+list.delete(4); // {4, 8, 9, 3}
+console.log(`Deleted an element, list length is: ${list.length()}`);
+console.log(`The list we used to extend has not been changed, its length: ${copiedList.length()}\n`);
