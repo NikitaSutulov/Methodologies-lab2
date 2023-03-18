@@ -12,12 +12,21 @@ class DoublyLinkedList {
     // length method returns the count of elements in the list
     // if the list is empty, it returns zero
     length() {
-
+        if (this.head === null && this.tail === null) {
+            return 0;
+        }
+        var counter = 1;
+        var currentNode = this.head;
+        while (currentNode.next !== null) {
+            currentNode = currentNode.next;
+            counter++;
+        }
+        return counter;
     }
 
     // append method adds an element at the end of the list
     append(element) {
-
+        
     }
 
     // insert method inserts an element in a certain position of the list
@@ -79,3 +88,5 @@ class DoublyLinkedList {
 
     }
 }
+
+export { DoublyLinkedList };
