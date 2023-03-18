@@ -61,3 +61,7 @@ console.log(`Getting an element with index 4 from extended list: ${list.get(4)}\
 list.delete(4); // {4, 8, 9, 3}
 console.log(`Deleted an element, list length is: ${list.length()}`);
 console.log(`The list we used to extend has not been changed, its length: ${copiedList.length()}\n`);
+
+// list.append(12); // if you decomment this line, there will be a type error
+// list.get(100500);
+// list.get(-2); // and if you decomment these two lines, there will be an out of range error

@@ -1,13 +1,12 @@
 'use strict';
 import { DoublyLinkedListNode } from './doublyLinkedListNode.js';
+import { validateIndex, validateCharType } from './validations.js';
 
 class DoublyLinkedList {
     constructor() {
         this.head = null;
         this.tail = null;
     }
-
-    // TODO: implement methods
 
     // length method returns the count of elements in the list
     // if the list is empty, it returns zero
@@ -26,6 +25,7 @@ class DoublyLinkedList {
 
     // append method adds an element at the end of the list
     append(element) {
+        validateCharType(element);
         const nodeToAppend = new DoublyLinkedListNode(element);
         nodeToAppend.prev = this.tail;
         if (this.tail !== null) {
@@ -41,8 +41,9 @@ class DoublyLinkedList {
     // if index is less than 0 or larger than the list range,
     // it will throw an error
     insert(element, index) {
+        validateCharType(element);
+        validateIndex(index, this.length());
         const nodeToInsert = new DoublyLinkedListNode(element);
-        // TODO: validate index
         if (index === 0) {
             this.head.prev = nodeToInsert;
             nodeToInsert.next = this.head;
@@ -70,8 +71,8 @@ class DoublyLinkedList {
     // if index is less than 0 or larger than the list range,
     // it will throw an error
     delete(index) {
+        validateIndex(index, this.length());
         var nodeToDelete = null;
-        // TODO: validate index
         if (index === 0) {
             nodeToDelete = this.head;
             if (this.head == this.tail) {
@@ -106,6 +107,7 @@ class DoublyLinkedList {
     // deleteAll method deletes all the elements in the list with a certain value
     // if there are no such elements, nothing changes in the list
     deleteAll(element) {
+        validateCharType(element);
         if (this.head == this.tail) {
             return;
         }
@@ -125,7 +127,7 @@ class DoublyLinkedList {
     // if index is less than 0 or larger than the list range,
     // it will throw an error
     get(index) {
-        // TODO: validate index
+        validateIndex(index, this.length());
         var counter = 0;
         var nodeToGet = this.head;
         while (counter !== index) {
@@ -171,6 +173,7 @@ class DoublyLinkedList {
     // findFirst method finds the first element of the list with a certain value and returns its index
     // if there are no such elements, it returns -1
     findFirst(element) {
+        validateCharType(element);
         var counter = 0;
         var nodeToFind = this.head;
         var foundIndex = -1;
@@ -188,6 +191,7 @@ class DoublyLinkedList {
     // findLast method finds the last element of the list with a certain value and returns its index
     // if there are no such elements, it returns -1
     findLast(element) {
+        validateCharType(element);
         var counter = this.length() - 1;
         var nodeToFind = this.tail;
         var foundIndex = -1;
