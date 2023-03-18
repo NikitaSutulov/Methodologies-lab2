@@ -125,7 +125,14 @@ class DoublyLinkedList {
     // if index is less than 0 or larger than the list range,
     // it will throw an error
     get(index) {
-
+        // TODO: validate index
+        var counter = 0;
+        var nodeToGet = this.head;
+        while (counter !== index) {
+            nodeToGet = nodeToGet.next;
+            counter++;
+        }
+        return nodeToGet.val;
     }
 
     // clone methods copies elements from the list and returns a copy of it
