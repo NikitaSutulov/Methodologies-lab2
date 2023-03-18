@@ -1,16 +1,27 @@
 'use strict';
 import { DoublyLinkedList } from "./src/doublyLinkedList.js";
 
-const list = new DoublyLinkedList();
-console.log(`The length of an empty list: ${list.length()}`);
+const list = new DoublyLinkedList(); // {}
+console.log(`The length of an empty list: ${list.length()}\n`);
 
-list.append('4');
+list.append('4'); // {4}
 console.log(`After we appended an element, the length of the list: ${list.length()}`);
-list.append('8');
+list.append('8'); // {4, 8}
 console.log(`With two elements appended, the length of the list: ${list.length()}`);
 
-list.insert('5', 1);
-console.log(`Inserted element in index 1: ${list.head.next.val}, list length: ${list.length()}`);
+list.insert('5', 1); // {4, 5, 8}
+console.log(`Inserted element in index 1: ${list.head.next.val}, list length: ${list.length()}\n`);
 
-console.log(`Deleted element: ${list.delete(2)}`);
-console.log(`Now the list length is ${list.length()}`);
+console.log(`Deleted element: ${list.delete(1)}`); // {4, 8}
+console.log(`Now the list length is ${list.length()}\n`);
+
+list.append('7');
+list.append('7');
+list.append('7');
+console.log(`Appended three similar elements, list length: ${list.length()}`); // {4, 8, 7, 7, 7}
+
+list.deleteAll('7');
+console.log(`List length after deleting all new similar elements: ${list.length()}`); // {4, 8}
+
+list.deleteAll('7');
+console.log(`Trying to do this again with the same parameter, nothing changes; list length: ${list.length()}\n`); // {4, 8}

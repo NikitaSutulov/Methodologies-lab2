@@ -106,7 +106,19 @@ class DoublyLinkedList {
     // deleteAll method deletes all the elements in the list with a certain value
     // if there are no such elements, nothing changes in the list
     deleteAll(element) {
-
+        if (this.head == this.tail) {
+            return;
+        }
+        var counter = 0;
+        var nodeToDelete = this.head;
+        while (nodeToDelete !== null) {
+            if (nodeToDelete.val === element) {
+                this.delete(counter);
+                counter--;
+            }
+            nodeToDelete = nodeToDelete.next;
+            counter++;
+        }
     }
 
     // get method returns an element of the list in a certain position
