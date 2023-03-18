@@ -41,7 +41,29 @@ class DoublyLinkedList {
     // if index is less than 0 or larger than the list range,
     // it will throw an error
     insert(element, index) {
-
+        const nodeToInsert = new DoublyLinkedListNode(element);
+        // TODO: validate index
+        if (index === 0) {
+            this.head.prev = nodeToInsert;
+            nodeToInsert.next = this.head;
+            this.head = nodeToInsert;
+        } else if (index === this.length() - 1) {
+            nodeToInsert.prev = this.tail.prev;
+            this.tail.prev.next = nodeToInsert;
+            this.tail.prev = nodeToInsert;
+            nodeToInsert.next = this.tail;
+        } else {
+            var counter = 0;
+            var nodeToMove = this.head;
+            while (counter !== index) {
+                nodeToMove = nodeToMove.next();
+                counter++;
+            }
+            nodeToInsert.prev = nodeToMove.prev;
+            nodeToMove.prev.next = nodeToInsert;
+            nodeToInsert.next = nodeToMove;
+            nodeToMove.prev = nodeToInsert;
+        }
     }
 
     // delete method deletes an element in a certain position of the list and returns its value
