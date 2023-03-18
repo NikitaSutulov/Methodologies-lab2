@@ -188,7 +188,18 @@ class DoublyLinkedList {
     // findLast method finds the last element of the list with a certain value and returns its index
     // if there are no such elements, it returns -1
     findLast(element) {
-
+        var counter = this.length() - 1;
+        var nodeToFind = this.tail;
+        var foundIndex = -1;
+        while (nodeToFind !== null) {
+            if (nodeToFind.val === element) {
+                foundIndex = counter;
+                return foundIndex;
+            }
+            nodeToFind = nodeToFind.prev;
+            counter++;
+        }
+        return foundIndex;
     }
 
     // clear method deletes the elements from the list

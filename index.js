@@ -47,4 +47,5 @@ console.log(`Getting an element with index 4: ${list.get(4)}\n`); // 4
 
 list.append('3'); // {6, 3, 9, 8, 4, 3}
 console.log(`Appended an element ${list.get(list.length() - 1)}`);
-console.log(`Its first index in the list: ${list.findFirst('4')}`);
+console.log(`Its first index in the list: ${list.findFirst('3')}`);
+console.log(`Its last index in the list: ${list.findLast('3')}`);
