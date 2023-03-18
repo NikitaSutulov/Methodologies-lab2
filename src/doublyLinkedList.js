@@ -70,7 +70,37 @@ class DoublyLinkedList {
     // if index is less than 0 or larger than the list range,
     // it will throw an error
     delete(index) {
-
+        var nodeToDelete = null;
+        // TODO: validate index
+        if (index === 0) {
+            nodeToDelete = this.head;
+            if (this.head == this.tail) {
+                this.head = null;
+                this.tail = null;
+            } else {
+                this.head = this.head.next;
+                this.head.prev = null;
+            }
+        } else if (index === this.length() - 1) {
+            nodeToDelete = this.tail;
+            if (this.head == this.tail) {
+                this.head = null;
+                this.tail = null;
+            } else {
+                this.tail = this.tail.prev;
+                this.tail.next = null;
+            }
+        } else {
+            var counter = 0;
+            nodeToDelete = this.head;
+            while (counter !== index) {
+                nodeToDelete = nodeToDelete.next;
+                counter++;
+            }
+            nodeToDelete.prev.next = nodeToDelete.next;
+            nodeToDelete.next.prev = nodeToDelete.prev;
+        }
+        return nodeToDelete.val;
     }
 
     // deleteAll method deletes all the elements in the list with a certain value

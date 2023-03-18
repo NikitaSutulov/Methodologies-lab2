@@ -11,3 +11,6 @@ console.log(`With two elements appended, the length of the list: ${list.length()
 
 list.insert('5', 1);
 console.log(`Inserted element in index 1: ${list.head.next.val}, list length: ${list.length()}`);
+
+console.log(`Deleted element: ${list.delete(2)}`);
+console.log(`Now the list length is ${list.length()}`);
