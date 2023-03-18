@@ -137,7 +137,13 @@ class DoublyLinkedList {
 
     // clone methods copies elements from the list and returns a copy of it
     clone() {
-
+        const newList = new DoublyLinkedList();
+        var nodeToCopy = this.head;
+        while (nodeToCopy !== null) {
+            newList.append(nodeToCopy.val);
+            nodeToCopy = nodeToCopy.next;
+        }
+        return newList;
     }
 
     // reverse method reverses the list

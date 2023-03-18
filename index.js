@@ -33,3 +33,8 @@ list.append('6'); // {4, 8, 9, 3, 6}
 console.log(`Getting an element with index 0: ${list.get(0)}`); // 4
 console.log(`Getting an element with index 2: ${list.get(2)}`); // 9
 console.log(`Getting an element with index 4: ${list.get(4)}\n`); // 6
+
+const copiedList = list.clone();
+console.log(`Getting an element from a copied list with index 0: ${copiedList.get(0)}`); // 4
+console.log(`Getting an element from a copied list with index 2: ${copiedList.get(2)}`); // 9
+console.log(`Getting an element from a copied list with index 4: ${copiedList.get(4)}\n`); // 6
