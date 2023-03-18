@@ -26,9 +26,9 @@ console.log(`List length after deleting all new similar elements: ${list.length(
 list.deleteAll('7');
 console.log(`Trying to do this again with the same parameter, nothing changes; list length: ${list.length()}\n`); // {4, 8}
 
-list.append(9);
-list.append(3);
-list.append(6); // {4, 8, 9, 3, 6}
+list.append('9');
+list.append('3');
+list.append('6'); // {4, 8, 9, 3, 6}
 
 console.log(`Getting an element with index 0: ${list.get(0)}`); // 4
 console.log(`Getting an element with index 2: ${list.get(2)}`); // 9
