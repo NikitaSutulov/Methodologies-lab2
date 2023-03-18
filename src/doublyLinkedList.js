@@ -1,5 +1,5 @@
 'use strict';
-// import { DoublyLinkedListNode } from './doublyLinkedListNode.js';
+import { DoublyLinkedListNode } from './doublyLinkedListNode.js';
 
 class DoublyLinkedList {
     constructor() {
@@ -26,7 +26,15 @@ class DoublyLinkedList {
 
     // append method adds an element at the end of the list
     append(element) {
-        
+        const nodeToAppend = new DoublyLinkedListNode(element);
+        nodeToAppend.prev = this.tail;
+        if (this.tail !== null) {
+            this.tail.next = nodeToAppend;   
+        }
+        this.tail = nodeToAppend;
+        if (this.head === null) {
+            this.head = nodeToAppend;
+        }
     }
 
     // insert method inserts an element in a certain position of the list
