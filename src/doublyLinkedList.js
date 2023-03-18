@@ -171,7 +171,18 @@ class DoublyLinkedList {
     // findFirst method finds the first element of the list with a certain value and returns its index
     // if there are no such elements, it returns -1
     findFirst(element) {
-
+        var counter = 0;
+        var nodeToFind = this.head;
+        var foundIndex = -1;
+        while (nodeToFind !== null) {
+            if (nodeToFind.val === element) {
+                foundIndex = counter;
+                return foundIndex;
+            }
+            nodeToFind = nodeToFind.next;
+            counter++;
+        }
+        return foundIndex;
     }
 
     // findLast method finds the last element of the list with a certain value and returns its index
