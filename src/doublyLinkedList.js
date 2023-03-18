@@ -204,7 +204,8 @@ class DoublyLinkedList {
 
     // clear method deletes the elements from the list
     clear() {
-
+        this.head = null;
+        this.tail = null;
     }
 
     // extend method adds to the list all the elements of elements list
