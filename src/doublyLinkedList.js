@@ -201,7 +201,7 @@ class DoublyLinkedList {
                 return foundIndex;
             }
             nodeToFind = nodeToFind.prev;
-            counter++;
+            counter--;
         }
         return foundIndex;
     }
