@@ -7,4 +7,4 @@ class DoublyLinkedListNode {
     }
 }
 
-export { DoublyLinkedListNode };
+module.exports = { DoublyLinkedListNode };

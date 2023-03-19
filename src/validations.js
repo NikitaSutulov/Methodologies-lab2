@@ -12,4 +12,4 @@ const validateCharType = (value) => {
     }
 };
 
-export { validateIndex, validateCharType };
+module.exports = { validateIndex, validateCharType };

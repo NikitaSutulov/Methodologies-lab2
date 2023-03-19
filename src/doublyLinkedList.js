@@ -1,6 +1,6 @@
 'use strict';
-import { DoublyLinkedListNode } from './doublyLinkedListNode.js';
-import { validateIndex, validateCharType } from './validations.js';
+const { DoublyLinkedListNode } = require('./doublyLinkedListNode.js');
+const { validateIndex, validateCharType } = require('./validations.js');
 
 class DoublyLinkedList {
     constructor() {
@@ -201,7 +201,7 @@ class DoublyLinkedList {
                 return foundIndex;
             }
             nodeToFind = nodeToFind.prev;
-            counter++;
+            counter--;
         }
         return foundIndex;
     }
@@ -222,4 +222,4 @@ class DoublyLinkedList {
     }
 }
 
-export { DoublyLinkedList };
+module.exports = { DoublyLinkedList };
