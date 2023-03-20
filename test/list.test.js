@@ -1,19 +1,19 @@
 'use strict';
-const { DoublyLinkedList } = require('../src/doublyLinkedList.js');
+const { List } = require('../src/list.js');
 
 test('Empty list length is 0', () => {
-    const list = new DoublyLinkedList();
+    const list = new List();
     expect(list.length()).toBe(0);
 });
 
 test('After adding an element, list length is 1', () => {
-    const list = new DoublyLinkedList();
+    const list = new List();
     list.append('a');
     expect(list.length()).toBe(1);
 });
 
 test('After inserting an element on a certain index, we can get it by this index', () => {
-    const list = new DoublyLinkedList();
+    const list = new List();
     list.append('q');
     list.append('w');
     list.append('e');
@@ -24,14 +24,14 @@ test('After inserting an element on a certain index, we can get it by this index
 });
 
 test('After deleting an element from a list with 1 element, the list is empty', () => {
-    const list = new DoublyLinkedList();
+    const list = new List();
     list.append('b');
     list.delete(0);
     expect(list.length()).toBe(0);
 });
 
 test('After deleting an element from a list with 2 elements, the list has 1 element', () => {
-    const list = new DoublyLinkedList();
+    const list = new List();
     list.append('b');
     list.append('c');
     list.delete(1);
@@ -39,14 +39,14 @@ test('After deleting an element from a list with 2 elements, the list has 1 elem
 });
 
 test('After deleting an element from a list with 2 elements, the deleted element is returned', () => {
-    const list = new DoublyLinkedList();
+    const list = new List();
     list.append('b');
     list.append('c');
     expect(list.delete(1)).toBe('c');
 });
 
 test('After deleting all the elements with the same values, the list is empty', () => {
-    const list = new DoublyLinkedList();
+    const list = new List();
     list.append('7');
     list.append('7');
     list.append('7');
@@ -55,7 +55,7 @@ test('After deleting all the elements with the same values, the list is empty', 
 });
 
 test('After deleting all the elements which do not exist in it, nothing changes', () => {
-    const list = new DoublyLinkedList();
+    const list = new List();
     list.append('7');
     list.append('7');
     list.append('7');
@@ -64,13 +64,13 @@ test('After deleting all the elements which do not exist in it, nothing changes'
 });
 
 test('After appending an element to the list, we can get this element', () => {
-    const list = new DoublyLinkedList();
+    const list = new List();
     list.append('p');
     expect(list.get(0)).toBe('p');
 });
 
 test('A cloned list contains the same values as the original one', () => {
-    const list = new DoublyLinkedList();
+    const list = new List();
     list.append('k');
     list.append('y');
     list.append('i');
@@ -84,7 +84,7 @@ test('A cloned list contains the same values as the original one', () => {
 });
 
 test('After reversing a list, its elements are reversed', () => {
-    const list = new DoublyLinkedList();
+    const list = new List();
     list.append('a');
     list.append('b');
     list.reverse();
@@ -93,7 +93,7 @@ test('After reversing a list, its elements are reversed', () => {
 });
 
 test('After reversing a list twice, it remains the same', () => {
-    const list = new DoublyLinkedList();
+    const list = new List();
     list.append('a');
     list.append('b');
     list.reverse();
@@ -103,7 +103,7 @@ test('After reversing a list twice, it remains the same', () => {
 });
 
 test('We can find the first element with a certain value', () => {
-    const list = new DoublyLinkedList();
+    const list = new List();
     list.append('1');
     list.append('3');
     list.append('3');
@@ -112,7 +112,7 @@ test('We can find the first element with a certain value', () => {
 });
 
 test('We can find the last element with a certain value', () => {
-    const list = new DoublyLinkedList();
+    const list = new List();
     list.append('1');
     list.append('3');
     list.append('3');
@@ -121,7 +121,7 @@ test('We can find the last element with a certain value', () => {
 });
 
 test('If the element can not be found, findFirst method returns -1', () => {
-    const list = new DoublyLinkedList();
+    const list = new List();
     list.append('a');
     list.append('b');
     list.append('c');
@@ -129,7 +129,7 @@ test('If the element can not be found, findFirst method returns -1', () => {
 });
 
 test('If the element can not be found, findLast method returns -1', () => {
-    const list = new DoublyLinkedList();
+    const list = new List();
     list.append('a');
     list.append('b');
     list.append('c');
@@ -137,17 +137,17 @@ test('If the element can not be found, findLast method returns -1', () => {
 });
 
 test('Using findFirst method with an empty list returns -1', () => {
-    const list = new DoublyLinkedList();
+    const list = new List();
     expect(list.findFirst('Z')).toBe(-1);
 });
 
 test('Using findLast method with an empty list returns -1', () => {
-    const list = new DoublyLinkedList();
+    const list = new List();
     expect(list.findLast('Z')).toBe(-1);
 });
 
 test('After invoking clear method, the list is empty', () => {
-    const list = new DoublyLinkedList();
+    const list = new List();
     list.append('b');
     list.append('r');
     list.append('u');
@@ -157,9 +157,9 @@ test('After invoking clear method, the list is empty', () => {
 });
 
 test('We can extend one list with another', () => {
-    const list = new DoublyLinkedList();
+    const list = new List();
     list.append('1');
-    const listToExtendWith = new DoublyLinkedList();
+    const listToExtendWith = new List();
     listToExtendWith.append('2');
     list.extend(listToExtendWith);
     expect(list.length()).toBe(2);
@@ -168,9 +168,9 @@ test('We can extend one list with another', () => {
 });
 
 test('Changing list after extending does not change the list used to extend', () => {
-    const list = new DoublyLinkedList();
+    const list = new List();
     list.append('1');
-    const listToExtendWith = new DoublyLinkedList();
+    const listToExtendWith = new List();
     listToExtendWith.append('2');
     list.extend(listToExtendWith);
     list.delete(1);
@@ -179,7 +179,7 @@ test('Changing list after extending does not change the list used to extend', ()
 });
 
 test('Methods with index parameter throw an exception if index is invalid', () => {
-    const list = new DoublyLinkedList();
+    const list = new List();
     list.append('1');
 
     expect(list.insert.bind(list, '2', -7)).toThrow('Index out of range');
@@ -196,7 +196,7 @@ test('Methods with index parameter throw an exception if index is invalid', () =
 });
 
 test('Methods with element parameter throw an exception if element is invalid', () => {
-    const list = new DoublyLinkedList();
+    const list = new List();
     list.append('1');
     list.append('s');
 

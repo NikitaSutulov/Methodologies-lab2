@@ -1,7 +1,7 @@
 'use strict';
-const { DoublyLinkedList } = require("./src/doublyLinkedList.js");
+const { List } = require("./src/list.js");
 
-const list = new DoublyLinkedList(); // {}
+const list = new List(); // {}
 console.log(`The length of an empty list: ${list.length()}\n`);
 
 list.append('4'); // {4}
