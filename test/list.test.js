@@ -185,12 +185,15 @@ test('Methods with index parameter throw an exception if index is invalid', () =
 
     expect(list.insert.bind(list, '2', -7)).toThrow('Index out of range');
     expect(list.insert.bind(list, '2', 43)).toThrow('Index out of range');
+    expect(list.insert.bind(list, '2', '25')).toThrow('Index must be a number');
 
     expect(list.delete.bind(list, -1)).toThrow('Index out of range');
     expect(list.delete.bind(list, 4)).toThrow('Index out of range');
+    expect(list.delete.bind(list, true)).toThrow('Index must be a number');
 
     expect(list.get.bind(list, -228)).toThrow('Index out of range');
     expect(list.get.bind(list, 10)).toThrow('Index out of range');
+    expect(list.get.bind(list, { index: 0 })).toThrow('Index must be a number');
 });
 
 test('Methods with element parameter throw an exception if element is invalid', () => {
