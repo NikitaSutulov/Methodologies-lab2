@@ -1,6 +1,5 @@
 'use strict';
 const { DoublyLinkedList } = require('../src/doublyLinkedList.js');
-const { validateCharType, validateIndex } = require('../src/validations.js');
 
 test('Empty list length is 0', () => {
     const list = new DoublyLinkedList();
